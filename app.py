@@ -35,10 +35,11 @@ def index(path):
         'form' : extract(request.form),
         'cookies' : extract(request.cookies)
     }
-    webhook_hits.append(data)
+    if data['path'] != '/favicon.ico':
+        webhook_hits.append(data)
 
     return jsonify(data)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
