@@ -1,0 +1,6 @@
+{% for hit in webhook_hits %}
+<div>
+    {{hit['time']}} - {{hit['method']}} request at {{hit['path']}}
+    with body {{hit['data']}}
+</div>
+{% endfor %}
