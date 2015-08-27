@@ -1,7 +1,15 @@
 <h3>Web Requests</h3>
 {% for hit in webhook_hits %}
 <div>
-    {{hit['time']}} - {{hit['method']}} request at {{hit['path']}}
-    with body {{hit['data']}}
+    {{hit['time']}} - {{hit['method']}} request at {{hit['path']}} with <br/>
+    body {{hit['data']}} <br/>
+    form data {{hit['form']}} <br/>
+    and headers: <br/>
+    <div style="padding-left: 50px">
+    {% for header in hit['headers'] %}
+        {{header}} - {{hit['headers'][header]}}<br/>
+    {% endfor %}
+    </div>
 </div>
+<br/>
 {% endfor %}
