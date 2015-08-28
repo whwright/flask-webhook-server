@@ -15,7 +15,10 @@ def extract(d):
 
 @app.endpoint('index')
 def index(path):
+    global webhook_hits
     if not path:
+        if request.method == 'POST':
+            webhook_hits = []
         return render_template('index.html', webhook_hits=webhook_hits)
 
     data = {
@@ -42,4 +45,4 @@ def index(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

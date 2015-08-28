@@ -1,4 +1,7 @@
 <h3>Web Requests</h3>
+<form action="" method="post">
+    <button>reset</button>
+</form>
 {% for hit in webhook_hits %}
 <div>
     {{hit['time']}} - {{hit['method']}} request at {{hit['path']}} with <br/>
